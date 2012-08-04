@@ -1,0 +1,333 @@
+.ui-tooltip-green
+{
+	font: 100% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+}
+
+#header 
+{
+	clear: both;
+	display: block;
+	padding-bottom: 0px;
+	/*padding-top: 20px;*/
+	margin: 0; 
+	margin-left:auto;
+	margin-right:auto;
+	background: url(/images/header3.png) center no-repeat;
+	height: 100px;
+	width: 100%;
+}
+body 
+{
+	/*background-image: url(/images/background.jpg);*/
+	background-color: #F5FFFA;
+}
+table
+{
+	font: 100% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+	font-size:  85%;
+	padding: 0; 
+	margin: 0; 
+	margin-left:auto;
+	margin-right:auto;
+	border-collapse: collapse; 
+	border-color: #a9c6c9;
+	border-width: 1px;
+	color: #333; 
+	background: #F3F5F7;
+	width: 1024px;
+	text-align: center;
+}
+
+table.sortable
+{
+	font: 100% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+	font-size:  90%;
+	padding: 0; 
+	margin: 0; 
+	margin-left:auto;
+	margin-right:auto;
+	border-collapse: collapse; 
+	border-color: #a9c6c9;
+	border-width: 1px;
+	color: #333; 
+	background: #F3F5F7;
+	width: 1024px;
+}
+
+table.popup
+{
+	font: 80% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+	padding: 0; 
+	margin: 0; 
+	border-collapse: collapse; 
+	color: #333; 
+	background: #F3F5F7;
+	width: 350px;
+}
+
+caption
+{
+	background: url(title.png) no-repeat 50px;
+	font-size: 400%;
+	text-indent: -10000px;
+}
+
+thead tr
+{
+	background-color: #D9FFD9;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+tfoot tr
+{
+	background-color: #FFFFFF;
+}
+
+table.popup thead th
+{
+	background: #3A4856; 
+	padding: 15px 10px; 
+	color: #fff; 
+	text-align: left; 
+	font-weight: normal;
+}
+
+thead th
+{
+	padding: 0.5em;
+	white-space: nowrap;
+}
+
+tfoot th
+{
+	font-size: 125%;
+	text-align: center;
+	padding-right: 0.5em;
+	letter-spacing: 1px;
+	background:  
+}
+
+tfoot td
+{
+	padding-left: 0.5em;
+	color: red;
+	font-size: 125%;
+	font-weight: 600;
+}
+
+tfoot td:hover
+{
+	/*background-color: red;*/
+	color: #111;
+}
+
+tr
+{
+	background-color: #EAFDFF;
+}
+
+tr.d0
+{
+	background-color: #EAFDFF;
+	border-width:1px 0;
+	border-style:solid;
+	border-color:black;
+	height: 30px;
+}
+
+tr.d1
+{
+	background-color: #F0FFFF;
+	border-width:1px 0;
+	border-style:solid;
+	border-color:black;
+	height: 30px;
+}
+
+/* InfoWindow Popup Style */
+table.popup tr 
+{
+	background: #FFFFFF;
+}
+
+table.popup tr:hover 
+{
+	background: #EAFDFF; 
+	color: #111;
+}
+
+table.popup tbody td, tbody th
+{
+	padding: 1px; 
+	/*background: url("td_back.gif") repeat-x;*/ 
+	text-align: center;
+}
+
+tr.row td
+{
+	border-width:1px 0;
+	border-style:solid;
+	border-color:black;
+}
+tr:hover
+{
+	
+}
+
+
+table.sortable tbody tr:hover
+{
+	background-color: #D9FFD9;
+}
+
+td, th
+{
+	/*border: 1px solid #CCCCCC;*/
+	border: 1px solid #000000;
+}
+
+
+
+tbody td
+{
+	padding: 0.5em;
+}
+
+td a:link, th a:link
+{
+	color: black;
+}
+
+td a:visited, th a:visited
+{
+	color: black;
+	text-decoration: line-through;
+}
+
+td a:hover, th a:hover
+{
+	color: purple;
+	text-decoration: underline;
+}
+
+td:last-child a:hover
+{
+	color: red;
+	text-decoration: underline overline;
+}
+
+div#navigation 
+{
+	font: 90% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+	margin-left: auto;
+	margin-right: auto;
+
+	margin: 0px 150px;
+	padding: 5px 90px;
+	text-align:center;
+}
+
+div.center 
+{
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.blackMenu
+{
+	padding: 10px;
+	background: url(/images/menu.png) center no-repeat;
+	background-color: #000000;
+}
+
+.black
+{
+	padding: 10px;
+	border: 2px solid #003300;
+	background-color: #000000;
+}
+
+.darkgreen
+{
+	background-color: #003300;
+}
+
+div#navigation div.prev { display:block; float:left; width:40%; }
+div#navigation div.page-number { float:left; width:20%; }
+div#navigation div.next { float:right; width:40%; }
+
+/*
+h1
+{
+	font-family: Consolas, 'Lucida Console', ' DejaVu Sans Mono', monospace;
+}
+
+body 
+{	
+	background-color:#E0E0E0;
+}
+table.tweets 
+{
+	font: 100% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+	padding: 0; 
+	margin: 0; 
+	margin-left:auto;
+	margin-right:auto;
+	border-collapse: collapse; 
+	border-color: #a9c6c9;
+	border-width: 1px;
+	color: #333; 
+	background: #F3F5F7;
+	width: 1024px;
+	text-align: center;
+}
+table.tweets th
+{
+	border-width: 1px;
+	padding: 8px;
+	font-weight: bold;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.tweets td 
+{
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
+table.tweets tr 
+{	
+	background-color:#d4e3e5;
+}
+
+.oddrowcolor 
+{	background-color: #a9c6c9;	}
+
+.evenrowcolor
+{	background-color: #c3dde0;	}
+
+div#navigation 
+{
+	margin-left: auto;
+	margin-right: auto;
+
+	margin: 0px 150px;
+	padding: 5px 90px;
+	text-align:center;
+}
+
+div.center 
+{
+   margin-left: auto;
+   margin-right: auto;
+}
+
+div#navigation div.prev { display:block; float:left; width:40%; }
+div#navigation div.page-number { float:left; width:20%; }
+div#navigation div.next { float:right; width:40%; }
+.clear { clear: both; }
+*/

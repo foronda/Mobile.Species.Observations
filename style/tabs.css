@@ -1,0 +1,59 @@
+.tabs
+{
+    font: 110% "Lucida Grande" , "Lucida Sans Unicode" , "Trebuchet MS" , sans-serif;
+    width: 100%;
+    font-size: 115%;
+	font-weight: bold;
+    line-height: normal;
+    text-align: center;
+    margin: 0;
+}
+
+.tabs ul
+{
+    display: inline-block;
+    list-style: none;
+	margin: 0;
+}
+
+.tabs ul li span:hover
+{
+	color: #90D93F;
+}
+
+.tabs li
+{
+    display: inline;
+    margin: 0 auto;
+    padding: 0;
+	background-color: rgb(255,255,0);
+}
+
+.tabs a
+{
+	/*background: url("/images/tableft.gif") no-repeat left top;*/
+    text-decoration: none;
+    padding: 0 0 0 0px; /* variable width */
+	margin: 0 auto;
+	border:1px solid #eee;
+	
+}
+
+.tabs ul lu a span:hover
+{
+	/*background: #fff;*/
+}
+.tabs a span
+{
+    float: left;
+    display: block;
+    /*background: url("/images/tabright.gif") no-repeat right top;*/
+    padding: 1px 40px 1px 40px;
+    color: #FFF;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+.tabs a span
+{
+    float: left;
+}
