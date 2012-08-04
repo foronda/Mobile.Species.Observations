@@ -12,7 +12,6 @@
  // Twitter uses long int, so you may need to instruct the PHP/MongoDB to use long ints
  ini_set('mongo.native_long', 1);
 
-
  // Twitter Access Tokens
  $oauth_access_token = "453392093-7XhoM3gPqzUNKbK7ys2v50ZSBnTw0oSFmOfIWvUy";
  $oauth_access_token_secret = "9QAeumXw79XI3sACBeuUBNqsw0R8TzLTShFC0RMZ2s";
