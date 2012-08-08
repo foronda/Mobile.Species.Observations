@@ -152,18 +152,7 @@ else
 			  name	 : 'newDate',
 			  select : true,
 		  });
-		});
-		$(document).ready(function() {	
-			$('#tabs a:eq(0)').pageswitch();		// select the first a-tag and use standard settings for the animation				
-			$('#tabs a:eq(1)').pageswitch();
-			$('#tabs a:eq(2)').pageswitch();
-			$('#tabs a:eq(3)').pageswitch();
-			$('#tabs a:eq(8)').pageswitch({		// select the second a-tag
-				url:		'form.php',			// overwrites the a-href
-				properties: { marginLeft: -$('body').width() },	// manipulates the margin of the target	
-				options: 	{ duration: 1000 }		// sets the duration of animation
-			});											
-		});    
+		});   
 	</script>
 	</head>
 	<body>
@@ -336,7 +325,7 @@ else
 		</table>
 		<table>
 		<tr>
-			<th class="black">
+			<th class="blackMenu">
 				<div class="tabs">
 					<ul>
 						<li>

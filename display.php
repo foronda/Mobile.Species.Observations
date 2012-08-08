@@ -89,7 +89,7 @@ foreach($cursor as $id => $value)
 		#map_canvas { height: 100% }
 		div#contentarea { width : 100%; }
 	</style>
-		<!-- Load JavaScript files -->
+	<!-- Load JavaScript files -->
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDZQqZmW836bUVNPZ6kAHgZRMNAR3XY9No&amp;sensor=false"></script>
 	<script type="text/javascript" src="javascript/sorttable.js"></script>
 	<script type="text/javascript" src="javascript/jquery.js"></script>  
@@ -103,13 +103,18 @@ foreach($cursor as $id => $value)
 	<script type="text/javascript" >
 		$(document).ready(function()
 		{
-			// Match all <A/> links with a title tag and use it as the content (default).
+			// Match all <span/> links with a title tag and use it as the content (default).
 			$('span[title]').qtip
 			({
 				position: { at: 'bottom center', my: 'top center' },
 				style: { classes: 'ui-tooltip-rounded ui-tooltip-green' }
 			});
 		});
+		$(document).ready(function()
+		{
+			initialize();
+		});
+		/* Future implementation of file upload functionality still to be decided
 		$(function() {
 			$('#file_upload').uploadify({
 			'height'   : 15,
@@ -118,65 +123,11 @@ foreach($cursor as $id => $value)
 			'uploader' : 'php/uploadify.php'
 			// Put your options here
 			});
-		});
-		$(function() {
-		  $(".editable_tweet").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'tweetId',
-			  name	 : 'newTweet',
-			  select : true,
-		  });
-		  $(".editable_screenName").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'screenNameId',
-			  name	 : 'newScreenName',
-			  select : true,
-		  });
-		  $(".editable_lat").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'latId',
-			  name	 : 'newLat',
-			  select : true,
-		  });
-		  $(".editable_long").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'longId',
-			  name	 : 'newLong',
-			  select : true,
-		  });
-		   $(".editable_media").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'imageId',
-			  name	 : 'newImage',
-			  select : true,
-		  });
-		  $(".editable_interLocation").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'interLocationId',
-			  name	 : 'newinterLocation',
-			  select : true,
-		  });
-		   $(".editable_date").editable("http://hawaiiwetlands.org:8080/save.php", { 
-			  indicator : "<img src='images/indicator.gif'>",
-			  tooltip   : "Click to edit...",
-			  style  : "display: inline",
-			  id	 : 'dateId',
-			  name	 : 'newDate',
-			  select : true,
-		  });
-		});
+		});*/
+		
+		// Javascript functions below no longer implemented, prior use was to 
+		// implement slide panels, or toggle divs
+		/*
 		$(document).ready(function(){
 			$(".flipmap").click(function(){
 				if($('.map').css('display') == 'none')
@@ -201,15 +152,15 @@ foreach($cursor as $id => $value)
 				}
 			  });
 		});
-		// $(document).ready(function(){
-			// $(".flipView").click(function(){
-				// alert($('.panel').css('display'));
-				// if($('.panel').css('display') != 'none')
-				// {
-					// $(".map").slideToggle("fast");
-				// }
-			  // });
-		// });
+		$(document).ready(function(){
+			$(".flipView").click(function(){
+				alert($('.panel').css('display'));
+				if($('.panel').css('display') != 'none')
+				{
+					$(".map").slideToggle("fast");
+				}
+			  });
+		});
 		$(document).ready(function() {	
 			$('#tabs a:eq(0)').pageswitch();		// select the first a-tag and use standard settings for the animation				
 			$('#tabs a:eq(1)').pageswitch();
@@ -220,7 +171,7 @@ foreach($cursor as $id => $value)
 				properties: { marginLeft: -$('body').width() },	// manipulates the margin of the target	
 				options: 	{ duration: 1000 }		// sets the duration of animation
 			});											
-		});    
+		});*/
 	</script>
 	<script type="text/javascript">
 		// Declares a global array instance of google.maps LatLng objects 
@@ -234,9 +185,7 @@ foreach($cursor as $id => $value)
 			// Sets google maps options
 			var myOptions = 
 			{
-				// Centers on Maui...
-				//center: new google.maps.LatLng(20.80362, -156.321716),
-				//zoom: 7,
+				//Centers data based LatLng Bounds
 				center: new google.maps.LatLng(0, 0),
 				zoom: 0,
 				mapTypeId: google.maps.MapTypeId.TERRAIN
@@ -292,11 +241,12 @@ foreach($cursor as $id => $value)
 							content += "<\/th><td>" + tweets[i].screen_name + " seen...<br>"; 
 							content += "''" + tweets[i].tweet +  "''<br>";
 							content += "on " + tweets[i].date.substr(0, 20) + tweets[i].date.substr(26);
-							if(tweets[i].specSound != null || tweets[i].specSound !=  '')
+							
+							if(tweets[i].specSound != null)
 							{
-									content += "<br><object type=application/x-shockwave-flash data=player/dewplayer-mini.swf?mp3=" + tweets[i].specSound + ".mp3 " + 
-											   "width=120 height=20 id=dewplayer-mini><param name=wmode value=transparent /><param name=movie value=" + 
-												tweets[i].specSound + ".mp3 /><\/object>";
+								content += "<br><object type=application/x-shockwave-flash data=player/dewplayer-mini.swf?mp3=" + tweets[i].specSound + ".mp3 " + 
+										   "width=120 height=20 id=dewplayer-mini><param name=wmode value=transparent /><param name=movie value=" + 
+											tweets[i].specSound + ".mp3 /><\/object>";
 							}
 							
 							content += "<\/td><\/table>";
@@ -313,6 +263,7 @@ foreach($cursor as $id => $value)
 				}
 			} 
 			
+			// Function to set map bounds on infowindow close
 			closeInfoWindow = function() 
 			{
 				map.fitBounds(latlngBounds);
@@ -380,7 +331,7 @@ foreach($cursor as $id => $value)
 	</div>
 	<table>
 	<tr>
-		<th class="black">
+		<th class="blackMenu">
 			<div class="tabs">
 				<ul>
 					<li>
@@ -409,22 +360,4 @@ foreach($cursor as $id => $value)
 	</tr>
 	</table>
 	</body>
-	<!--
-	<table>
-		<th id="black">
-			<div id="tabs">
-			<ul>
-				<li class="flipView">
-					<?php if(!isset($_GET['viewall'])): ?>
-						<a href="<?php echo $_SERVER['PHP_SELF'].'?viewall'; ?>"><span>VIEW ALL OBSERVATIONS</span></a>
-					<?php endif; ?>
-				</li>
-				<li>
-					<?php if(isset($_GET['viewall'])): ?>
-						<a href="display.php"><span>LIMIT OBSERVATIONS</span></a>
-					<?php endif; ?>
-				</li>
-			</ul>
-		</th>
-	</table>-->
 </html>

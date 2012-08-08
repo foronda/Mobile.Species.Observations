@@ -22,6 +22,10 @@
 			$voice = substr("voice\\", 0, 6);
 			$specSound = $voice.$specSound;
 	 }
+	 else
+	 {
+		$specSound = null;
+	 }
 
 	 // Gets Geo Data
 	 if(isset($_POST['lat']) && $_POST['long'])
