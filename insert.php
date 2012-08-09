@@ -2,10 +2,7 @@
 
 	 // Helper Class for Parsing Information
 	 include 'helper.php';
-
-	 $mongo = new Mongo();
-	 $db = $mongo->twitter;
-	 $collection = $db->tweets;
+	 include 'connect.php';
 
 	 // variables to insert into mongo
 	 $name = $_POST['name'];
@@ -64,12 +61,12 @@
 	 {
 		// Generates a MongoDB Array and Inserts
 		$tweet = array("screen_name" =>  $screen_name,
-					"name" => $name, "tweet" => $tweet, "hashtags" => $hashtags,
-					"date" => $date, "img" => $img, "specImg" => $specImg, 
-					"specSound" => $specSound, "specVid" => $specVid,
-					"geo" => array("lat" => $lat, "long" => $long, "interLocation" => $interLocation, 
-									"zipCode" => $zipCode, "city" => $city, "county" => $county, 
-									"state" => $state, "country" => $country));
+			   		"name" => $name, "tweet" => $tweet, "hashtags" => $hashtags,
+			   		"date" => $date, "img" => $img, "species" => null, "comment" => null,
+					"specImg" => $specImg, "specSound" => $specSound, "specVid" => $specVid, 
+			   		"geo" => array("lat" => $lat, "long" => $long, "interLocation" => null, 
+									"zipCode" => null, "city" => null, "county" => null, 
+									"state" => null, "country" => null));
 
 		// Since tweet id is used as _id field, update prevents mongo from 
 		//(die)ing on duplicate id entries. With params 'safe' & 'upsert'
