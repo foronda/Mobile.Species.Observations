@@ -5,6 +5,9 @@ try
 {
 	$mongo = new Mongo();
 	$db = $mongo->selectDB('twitter');
+	// If admin user is added, authentication is needed
+	// even if keyFile authentication exists
+	//$db->authenticate("dbusername","password");
 	$collection = $db->selectCollection('tweets');
 }
 
