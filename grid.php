@@ -162,7 +162,7 @@ else
 		<th class="blackMenu">
 			<div class="tabs">
 			<ul>
-				<li><a href="display.php"><span title="Map points of species observations.">OBSERVATION MAPPING</span></a></li>
+				<li><a href="map.php"><span title="Map points of species observations.">OBSERVATION MAPPING</span></a></li>
 				<li><a href="grid.php"><span title="A detailed table of species observations.">OBSERVATION INFO</span></a></li>
 				<li><a href="form.php"><span title="Enter a new species observation using this form.">CREATE NEW OBSERVATION</span></a></li>
 			</ul>

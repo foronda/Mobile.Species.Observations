@@ -12,6 +12,7 @@
  // Twitter uses long int, so you may need to instruct the PHP/MongoDB to use long ints
  ini_set('mongo.native_long', 1);
 
+
  // Twitter Access Tokens
  $oauth_access_token = "453392093-7XhoM3gPqzUNKbK7ys2v50ZSBnTw0oSFmOfIWvUy";
  $oauth_access_token_secret = "9QAeumXw79XI3sACBeuUBNqsw0R8TzLTShFC0RMZ2s";
@@ -59,14 +60,12 @@
 			// Collects Necessary Tweet Document	
 			// Data does not need checks since data is guaranteed inside a tweet
 			$id = $item->id_str;
-			//$mongoId = new MongoId($id);
-			//echo "ID: ".$id." MongoID: ".$mongoId."<br>";
 			
 			$screen_name = $item->user->screen_name;
 			$name = $item->user->name;
 			$img = $item->user->profile_image_url;
 			$date = $item->created_at;
-			
+
 			// Calls helper functions to gather valid documents to insert
 		    $lat = GetLat($item);
 			$long = GetLong($item);	
@@ -85,8 +84,8 @@
 				// Geocode.php will be ran every 24hours instead of 10 minutes of collect.php
 		   		$tweet = array("_id" => $id, "screen_name" =>  $screen_name,
 			   				"name" => $name, "tweet" => $tweet, "hashtags" => $hashtags,
-			   				"date" => $date, "img" => $img, "specImg" => $specImg, 
-							"specSound" => $specSound, "specVid" => $specVid,
+			   				"date" => $date, "img" => $img, "species" => null, "comment" => null,
+							"specImg" => $specImg, "specSound" => $specSound, "specVid" => $specVid, 
 			   				"geo" => array("lat" => $lat, "long" => $long, "interLocation" => null, 
 											"zipCode" => null, "city" => null, "county" => null, 
 											"state" => null, "country" => null));
@@ -153,11 +152,11 @@
 				// Geocode.php will be ran every 24hours instead of 10 minutes of collect.php
 		   		$tweet = array("_id" => $id, "screen_name" =>  $screen_name,
 			   				"name" => $name, "tweet" => $tweet, "hashtags" => $hashtags,
-			   				"date" => $date, "img" => $img, "specImg" => $specImg, 
-							"specSound" => $specSound, "specVid" => $specVid,
+			   				"date" => $date, "img" => $img, "species" => null, "comment" => null,
+							"specImg" => $specImg, "specSound" => $specSound, "specVid" => $specVid, 
 			   				"geo" => array("lat" => $lat, "long" => $long, "interLocation" => null, 
-													"zipCode" => null, "city" => null, "county" => null, 
-													"state" => null, "country" => null));
+											"zipCode" => null, "city" => null, "county" => null, 
+											"state" => null, "country" => null));
 			
 				$collection->insert($tweet, array('safe' =>True,));
 				// Function belows allows one to update fields without erasing...
